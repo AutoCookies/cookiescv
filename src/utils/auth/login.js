@@ -7,6 +7,7 @@ import ENVAR from '../../config/env';
  * @returns {Promise<{user: object, message: string}>}
  */
 export async function handleLogin(email, password) {
+  console.log(ENVAR.API_URL);
   const response = await fetch(`${ENVAR.API_URL}/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

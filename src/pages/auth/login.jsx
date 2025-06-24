@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; //import useNavigate
 import { handleLogin } from '../../utils/auth/login';
 
 function Login() {
@@ -8,6 +8,8 @@ function Login() {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
 
+  const navigate = useNavigate(); //get navigation hook
+
   const onSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -15,6 +17,9 @@ function Login() {
       const { user, message } = await handleLogin(email, password);
       console.log(message);
       setMessage(`Welcome, ${user.fullname || user.email}!`);
+
+      //Redirect after successful login
+      setTimeout(() => navigate('/'), 500); // small delay to show message
     } catch (err) {
       setError(err.message);
     }
@@ -41,7 +46,7 @@ function Login() {
         <button type="submit">Login</button>
       </form>
 
-      <p>Don’t have an account? <Link to="/register">Register</Link></p>
+      <p>Don't have an account? <Link to="/register">Register</Link></p>
 
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {message && <p style={{ color: 'green' }}>{message}</p>}

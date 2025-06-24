@@ -1,4 +1,4 @@
-const API = import.meta.env.VITE_API_URL;
+import ENVAR from "../../config/env";
 
 /**
  * Register a new user by calling the backend API.
@@ -6,7 +6,7 @@ const API = import.meta.env.VITE_API_URL;
  * @returns {Promise<Object>} - { user, message }
  */
 export async function handleRegister(formData) {
-  const response = await fetch(`http://localhost:3000/v1/api/auth/register`, {
+  const response = await fetch(`${ENVAR.API_URL}/auth/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; //Import navigation
 import { handleRegister } from '../../utils/auth/register';
 
 function Register() {
@@ -8,14 +9,18 @@ function Register() {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
 
+  const navigate = useNavigate(); //Get navigate function
+
   const onSubmit = async (e) => {
     e.preventDefault();
     setError('');
     try {
       const { user, message } = await handleRegister({ fullname, email, password });
       console.log(message);
-      setMessage(`Welcome, ${user.fullname}!`);
-      // Optionally redirect to login or homepage
+      setMessage(`Account created! Please log in, ${user.fullname || 'user'}.`);
+
+      //Redirect to login after short delay
+      setTimeout(() => navigate('/login'), 1000);
     } catch (err) {
       setError(err.message);
     }
