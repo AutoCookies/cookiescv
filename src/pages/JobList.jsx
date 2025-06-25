@@ -23,7 +23,6 @@ function JobList() {
 
   return (
     <div className="joblist">
-      <h2>Danh sách công việc</h2>
       {loading ? (
         <p>Đang tải...</p>
       ) : (
