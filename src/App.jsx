@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import LoginPage from './pages/LoginPage';
 import JobList from './pages/JobList';
 import RegisterPage from './pages/RegisterPage';
+import JobDetails from './pages/JobDetail';
 import MyCVPage from './pages/user/MyCVPage';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<JobList />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/jobs/:id" element={<JobDetails />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/manage-cv" element={<MyCVPage />} />
         </Routes>

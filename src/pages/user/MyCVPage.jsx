@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { handleGetCV } from '../../utils/user/handleGetCV.js';
 import { handleUploadCV } from '../../utils/user/handleUploadCV.js';
 import '../../styles/user/MyCVPage.css';
+import { handleGetCVUrl } from '../../utils/user/handleGetCVUrl.js';
 
 function MyCVPage() {
     const [cvs, setCvs] = useState([]);
@@ -14,7 +15,13 @@ function MyCVPage() {
         const loadCVs = async () => {
             try {
                 const data = await handleGetCV();
-                setCvs(data || []);
+                const withSignedUrls = await Promise.all(
+                    data.map(async (cv) => {
+                        const signedUrl = await handleGetCVUrl(cv.id);
+                        return { ...cv, signedUrl };
+                    })
+                );
+                setCvs(withSignedUrls);
             } catch (err) {
                 setErrorMsg(err.message);
             } finally {
@@ -23,6 +30,7 @@ function MyCVPage() {
         };
         loadCVs();
     }, []);
+
 
     const handleFileChange = async (e) => {
         const file = e.target.files[0];
@@ -73,7 +81,7 @@ function MyCVPage() {
                                 Ngày tải lên: {new Date(cv.created_at || Date.now()).toLocaleString()}
                             </p>
                             <iframe
-                                src={cv.file_path || cv.fileUrl}
+                                src={cv.signedUrl}
                                 title={`CV ${cv.id}`}
                                 className="cv-pdf"
                                 frameBorder="0"

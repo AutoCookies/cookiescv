@@ -47,3 +47,9 @@
 .joblist strong {
   color: #111827;
 }
+
+.joblist img {
+  border-radius: 6px;
+  object-fit: contain;
+}
+

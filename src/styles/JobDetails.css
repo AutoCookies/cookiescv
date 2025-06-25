@@ -1,0 +1,33 @@
+.job-details-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.job-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.job-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.job-info {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.job-info strong {
+  display: inline-block;
+  width: 120px;
+  color: #444;
+}
