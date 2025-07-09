@@ -1,7 +1,7 @@
 import { fetchPublicJobs } from '@/utils/fetchAllJobs';
 
-export default async function JobsPage() {
-  const jobs = await fetchPublicJobs(1, 10); // Bạn có thể truyền `searchParams` nếu cần phân trang
+export default async function HomePage() {
+  const jobs = await fetchPublicJobs(1, 10);
 
   return (
     <main className="p-6">
