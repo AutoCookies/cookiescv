@@ -17,6 +17,7 @@
 
 .navMenu {
   display: flex;
+  flex-direction: row;
   gap: 1.25rem;
 }
 
@@ -28,26 +29,6 @@
 
 .navLink:hover {
   color: #e0e7ff;
-}
-
-.mainContent {
-  flex: 1;
-  padding: 2rem 1rem;
-}
-
-.glassCard {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.2s ease;
-}
-
-.glassCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 .footer {
@@ -90,12 +71,8 @@
     gap: 1.5rem;
   }
 
-  .mainContent {
-    padding: 2.5rem 1.5rem;
-  }
-
-  .glassCard {
-    padding: 2rem;
+  .navLink {
+    font-size: 1rem;
   }
 
   .footerLinks {
@@ -112,36 +89,23 @@
   .navMenu {
     gap: 2rem;
   }
-
-  .mainContent {
-    padding: 3rem 2rem;
-  }
-
-  .glassCard {
-    padding: 2.5rem;
-  }
 }
 
 @media (max-width: 640px) {
+  .header {
+    padding: 0.5rem 0.75rem;
+  }
+
   .headerBrand {
     font-size: 1.25rem;
   }
 
   .navMenu {
-    flex-direction: column;
     gap: 0.75rem;
   }
 
   .navLink {
     font-size: 0.875rem;
-  }
-
-  .mainContent {
-    padding: 1.5rem 0.75rem;
-  }
-
-  .glassCard {
-    padding: 1.25rem;
   }
 
   .footer {

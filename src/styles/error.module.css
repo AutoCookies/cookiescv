@@ -1,0 +1,143 @@
+.errorContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #fee2e2, #ffffff);
+  padding: 1rem;
+}
+
+.errorContent {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+  max-width: 32rem;
+  width: 100%;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #dc2626;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 1.5rem;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.retryButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #dc3545;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.retryButton:hover {
+  background-color: #b91c1c;
+  transform: translateY(-2px);
+}
+
+.homeButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #f3f4f6;
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.homeButton:hover {
+  background-color: #e5e7eb;
+  transform: translateY(-2px);
+}
+
+.errorDetails {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 2rem;
+}
+
+.errorMessage {
+  font-style: italic;
+  color: #4b5563;
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .errorContent {
+    padding: 2.5rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1.125rem;
+  }
+
+  .buttonGroup {
+    flex-direction: row;
+  }
+
+  .retryButton,
+  .homeButton {
+    padding: 0.875rem 2rem;
+  }
+
+  .errorDetails {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .errorContent {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .errorContent {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
+  }
+
+  .retryButton,
+  .homeButton {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.75rem;
+  }
+
+  .errorDetails {
+    font-size: 0.625rem;
+  }
+}

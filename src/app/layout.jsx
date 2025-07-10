@@ -25,11 +25,11 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} bg-gradient-to-b from-gray-50 to-gray-200 text-gray-900 min-h-screen flex flex-col antialiased`}>
         {/* Header */}
         <header className={`${styles.header} bg-gradient-to-r from-indigo-600 to-purple-600 text-white sticky top-0 z-50`}>
-          <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center">
+          <div className="max-w-7xl mx-auto px-4 py-3 flex flex-row justify-between items-center">
             <Link href="/" className={styles.headerBrand} aria-label="CookiesCV Home">
               CookiesCV
             </Link>
-            <nav className={`${styles.navMenu} mt-3 sm:mt-0 flex flex-col sm:flex-row gap-3 sm:gap-5`} aria-label="Main navigation">
+            <nav className={`${styles.navMenu} flex flex-row gap-4`} aria-label="Main navigation">
               <Link href="/jobs" className={styles.navLink} aria-label="Jobs page">Jobs</Link>
               <Link href="/create-cv" className={styles.navLink} aria-label="Create CV page">Create CV</Link>
               <Link href="/about" className={styles.navLink} aria-label="About page">About</Link>
@@ -37,10 +37,8 @@ export default function RootLayout({ children }) {
           </div>
         </header>
 
-        {/* Main Content */}
-        <main className={`${styles.mainContent} flex-1 max-w-7xl mx-auto px-4 py-8`}>
-          <div className={styles.glassCard}>{children}</div>
-        </main>
+        {/* Children */}
+        {children}
 
         {/* Footer */}
         <footer className={`${styles.footer} bg-gradient-to-r from-gray-900 to-indigo-900 text-gray-200 py-6 text-center text-sm`}>
