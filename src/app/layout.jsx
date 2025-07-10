@@ -33,6 +33,7 @@ export default function RootLayout({ children }) {
               <Link href="/jobs" className={styles.navLink} aria-label="Jobs page">Jobs</Link>
               <Link href="/create-cv" className={styles.navLink} aria-label="Create CV page">Create CV</Link>
               <Link href="/about" className={styles.navLink} aria-label="About page">About</Link>
+              <Link href="/signup" className={styles.signupButton} aria-label="Sign up">Sign Up</Link>
             </nav>
           </div>
         </header>
