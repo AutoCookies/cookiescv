@@ -1,0 +1,155 @@
+.header {
+  background: linear-gradient(to right, #4f46e5, #7c3aed);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.headerBrand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.headerBrand:hover {
+  color: #e0e7ff;
+}
+
+.navMenu {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.navLink {
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: #e0e7ff;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem 1rem;
+}
+
+.glassCard {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.glassCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.footer {
+  background: linear-gradient(to right, #111827, #1e3a8a);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footerLink {
+  color: #d1d5db;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover {
+  color: #ffffff;
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .header {
+    padding: 0.75rem 1rem;
+  }
+
+  .headerBrand {
+    font-size: 1.75rem;
+  }
+
+  .navMenu {
+    gap: 1.5rem;
+  }
+
+  .mainContent {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .glassCard {
+    padding: 2rem;
+  }
+
+  .footerLinks {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .headerBrand {
+    font-size: 2rem;
+  }
+
+  .navMenu {
+    gap: 2rem;
+  }
+
+  .mainContent {
+    padding: 3rem 2rem;
+  }
+
+  .glassCard {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .headerBrand {
+    font-size: 1.25rem;
+  }
+
+  .navMenu {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .navLink {
+    font-size: 0.875rem;
+  }
+
+  .mainContent {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .glassCard {
+    padding: 1.25rem;
+  }
+
+  .footer {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .footerLinks {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
