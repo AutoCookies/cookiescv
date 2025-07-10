@@ -1,4 +1,4 @@
-import ENVARS from '../../config/env.js';
+import ENVARS from '../config/env.js';
 
 /**
  * Registers a new user by calling the auth register API.
@@ -9,14 +9,14 @@ import ENVARS from '../../config/env.js';
  * @param {string} [userData.role='user'] - User's role (optional, defaults to 'user')
  * @returns {Promise<{ user: Object, error: string | null }>} - Object containing registered user data or error message
  */
-export const handleSignup = async ({ fullname, email, password, role = 'user' }) => {
+export const handleSignup = async ({ fullname, email, password}) => {
   try {
     const response = await fetch(`${ENVARS.NEXT_PUBLIC_API_URL}/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ fullname, email, password, role }),
+      body: JSON.stringify({ fullname, email, password}),
     });
 
     if (!response.ok) {

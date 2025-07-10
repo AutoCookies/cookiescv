@@ -110,7 +110,7 @@
   text-align: center;
 }
 
-.homeLink {
+.signUpLink {
   display: inline-block;
   margin-top: 1rem;
   color: #4f46e5;
@@ -120,21 +120,7 @@
   transition: color 0.2s ease;
 }
 
-.homeLink:hover {
-  color: #7c3aed;
-}
-
-.signInLink {
-  display: inline-block;
-  margin-top: 0.5rem;
-  color: #4f46e5;
-  font-weight: 500;
-  font-size: 0.875rem;
-  text-align: center;
-  transition: color 0.2s ease;
-}
-
-.signInLink:hover {
+.signUpLink:hover {
   color: #7c3aed;
 }
 
@@ -174,8 +160,7 @@
   }
 
   .error,
-  .homeLink,
-  .signInLink {
+  .signUpLink {
     font-size: 1rem;
   }
 }
@@ -233,8 +218,7 @@
   }
 
   .error,
-  .homeLink,
-  .signInLink {
+  .signUpLink {
     font-size: 0.75rem;
   }
 }

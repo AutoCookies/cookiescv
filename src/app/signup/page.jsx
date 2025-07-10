@@ -1,13 +1,10 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import { handleSignup } from '../../utils/signup/handleSignup.js';
+import { useRouter } from 'next/navigation';
+import { handleSignup } from '../../utils/handleSignup.js';
 import styles from '../../styles/signup/page.module.css';
 
-/**
- * Signup page component for the CookiesCV application.
- * @returns {JSX.Element} The signup page content
- */
 export default function SignupPage() {
   const [formData, setFormData] = useState({
     fullname: '',
@@ -17,17 +14,26 @@ export default function SignupPage() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
+  const router = useRouter();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const validateForm = (data) => {
+    if (!data.fullname.trim()) return 'Full name is required';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) return 'Invalid email format';
+    if (data.password.length < 6) return 'Password must be at least 6 characters';
+    return null;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    setSuccess(null);
+
+    const validationError = validateForm(formData);
+    if (validationError) {
+      setError(validationError);
+      setLoading(false);
+      return;
+    }
 
     const { user, error } = await handleSignup(formData);
     setLoading(false);
@@ -35,8 +41,12 @@ export default function SignupPage() {
     if (error) {
       setError(error);
     } else {
-      setSuccess(`Registration successful! Welcome, ${user.fullname}`);
+      router.push('/signin'); 
     }
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -55,6 +65,7 @@ export default function SignupPage() {
               onChange={handleChange}
               required
               className={styles.input}
+              disabled={loading}
             />
           </div>
           <div className={styles.formGroup}>
@@ -68,6 +79,7 @@ export default function SignupPage() {
               onChange={handleChange}
               required
               className={styles.input}
+              disabled={loading}
             />
           </div>
           <div className={styles.formGroup}>
@@ -81,33 +93,23 @@ export default function SignupPage() {
               onChange={handleChange}
               required
               className={styles.input}
+              disabled={loading}
             />
           </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="role" className={styles.label}>Role (Optional)</label>
-            <select
-              id="role"
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
-              className={styles.input}
-            >
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
-            </select>
-          </div>
           <button type="submit" className={styles.submitButton} disabled={loading}>
-            {loading ? 'Signing Up...' : 'Sign Up'}
+            {loading ? (
+              <span className={styles.submitButtonContent}>
+                <span className={styles.spinner} />
+                Processing...
+              </span>
+            ) : (
+              'Sign Up'
+            )}
           </button>
         </form>
         {error && <p className={styles.error}>{error}</p>}
-        {success && <p className={styles.success}>{success}</p>}
-        <Link href="/" className={styles.homeLink} aria-label="Back to home">
-          Back to Home
-        </Link>
-        <Link href="/signin" className={styles.signInLink} aria-label="Sign in if you already have an account">
-          Already have an account? Sign in
-        </Link>
+        <Link href="/" className={styles.homeLink}>Back to Home</Link>
+        <Link href="/signin" className={styles.signInLink}>Already have an account? Sign in</Link>
       </div>
     </div>
   );
